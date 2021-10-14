@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:wasstaapp/list_of_workers.dart';
 import './custom_app_bar.dart';
 import './worker_item.dart';
 
@@ -53,37 +54,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      drawer: const Drawer(),
-      appBar: const CustomAppBar(),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 167,
+    return Container(
+      width: 200,
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        drawer: const Drawer(),
+        appBar: const CustomAppBar(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 167,
+              ),
+              // CarouselSlider(
+              //   items: _pictures.map((imagePath) {
+              //     return Container(
+              //       margin: const EdgeInsets.symmetric(horizontal: 4),
+              //       height: 300,
+              //       width: 600,
+              //       child: Image.asset(
+              //         imagePath,
+              //         fit: BoxFit.cover,
+              //       ),
+              //     );
+              //   }).toList(),
+              //   options: CarouselOptions(
+              //     aspectRatio: 16 / 9,
+              //   ),
+              // ),
+              ListOfWorkers('best of month'),
+              ListOfWorkers('Latest'),
+              ListOfWorkers('Featured'),
+            ],
           ),
-          // CarouselSlider(
-          //   items: _pictures.map((imagePath) {
-          //     return Container(
-          //       margin: const EdgeInsets.symmetric(horizontal: 4),
-          //       height: 300,
-          //       width: 600,
-          //       child: Image.asset(
-          //         imagePath,
-          //         fit: BoxFit.cover,
-          //       ),
-          //     );
-          //   }).toList(),
-          //   options: CarouselOptions(
-          //     aspectRatio: 16 / 9,
-          //   ),
-          // ),
-          WorkerItem(workerDescription),
-        ],
+        ),
+        // const Center(
+        //   child: Text('hello'),
+        // ),
       ),
-      // const Center(
-      //   child: Text('hello'),
-      // ),
     );
   }
 }

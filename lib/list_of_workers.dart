@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasstaapp/worker_item.dart';
 
 class ListOfWorkers extends StatelessWidget {
   final String title;
@@ -12,25 +13,19 @@ class ListOfWorkers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            GestureDetector(
-              child: const Text(
-                "More",
-                style: TextStyle(color: Colors.grey),
-              ),
-              onTap: () {},
-            ),
-          ],
-        )
-      ],
+    return Container(
+      // width: 200,
+      height: 300,
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          WorkerItem(workerDescription),
+          WorkerItem(workerDescription),
+          WorkerItem(workerDescription),
+          WorkerItem(workerDescription),
+        ],
+        scrollDirection: Axis.horizontal,
+      ),
     );
   }
 }
